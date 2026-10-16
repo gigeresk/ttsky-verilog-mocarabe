@@ -1,0 +1,90 @@
+{
+  "data_width": 8,
+  "ii": 4,
+  "fifo_depth": 16,
+  "inputs": [
+    {
+      "node": "1",
+      "name": "x1",
+      "cycle": 2
+    },
+    {
+      "node": "2",
+      "name": "x2",
+      "cycle": 3
+    },
+    {
+      "node": "4",
+      "name": "c1",
+      "cycle": 12
+    },
+    {
+      "node": "6",
+      "name": "c2",
+      "cycle": 21
+    }
+  ],
+  "outputs": [
+    {
+      "node": "8",
+      "label": "ret",
+      "cycle": 55
+    }
+  ],
+  "nodes": {
+    "0": {
+      "label": "+",
+      "operands": [
+        "1",
+        "2"
+      ]
+    },
+    "1": {
+      "label": "x1",
+      "operands": []
+    },
+    "2": {
+      "label": "x2",
+      "operands": []
+    },
+    "3": {
+      "label": "+",
+      "operands": [
+        "0",
+        "4"
+      ]
+    },
+    "4": {
+      "label": "c1",
+      "operands": []
+    },
+    "5": {
+      "label": "*",
+      "operands": [
+        "6",
+        "3"
+      ]
+    },
+    "6": {
+      "label": "c2",
+      "operands": []
+    },
+    "7": {
+      "label": "*",
+      "operands": [
+        "3",
+        "5"
+      ]
+    },
+    "8": {
+      "label": "ret",
+      "operands": [
+        "7",
+        "7"
+      ]
+    }
+  },
+  "cycles": "input n is sampled at run cycle cycle + k*II for iteration k; output n is on io_out at run cycle cycle + k*II",
+  "cfg_width": 8,
+  "flush_cycles": 48
+}

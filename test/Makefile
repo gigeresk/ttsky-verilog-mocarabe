@@ -6,7 +6,7 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = tt_um_gigeresk_mocarabe.v mocarabe.sv torus_switch.sv pe_2_input.sv pe_mux_n_input.sv pe_srl.v SRL16E.v SRLC32E.v SRL64.v cfg_loader.sv cfg_row.sv pe_cfg.sv
 
 ifneq ($(GATES),yes)
 
@@ -33,6 +33,7 @@ endif
 
 # Allow sharing configuration between design and testbench via `include`:
 COMPILE_ARGS 		+= -I$(SRC_DIR)
+COMPILE_ARGS 		+= -DMOCARABE_QUIET
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
